@@ -1,5 +1,5 @@
 import { ReactElement } from "react";
-import { ITodo } from "..";
+import { ITodo } from "../interfaces";
 
 interface TodoTaskProps {
 	todoTask: ITodo
