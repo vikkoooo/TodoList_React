@@ -1,10 +1,9 @@
-export function App() {
+import { ReactElement } from "react";
+import { TodoList } from "./TodoList";
+import { data } from "../index.ts";
+
+export function App(): ReactElement {
 	return (
-		<>
-			<h1>This is the App component</h1>
-			<span className="material-symbols-outlined">
-				settings
-			</span>
-		</>
+		<TodoList taskList={data} />
 	);
 }
