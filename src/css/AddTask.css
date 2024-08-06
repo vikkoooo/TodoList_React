@@ -29,6 +29,10 @@ input:focus {
 	outline-color: #628fbd;
 }
 
+input::placeholder {
+	color: #757575;
+}
+
 .add-button {
 	background-color: #edc2e7;
 	border: none;
