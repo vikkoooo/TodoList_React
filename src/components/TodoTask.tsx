@@ -4,6 +4,7 @@ import { ITodo } from "../interfaces";
 interface TodoTaskProps {
 	todoTask: ITodo;
 	handleTaskClick: (todo: ITodo) => void;
+	handleDeleteClick: (todo: ITodo) => void;
 }
 
 export function TodoTask(props: TodoTaskProps): ReactElement {
@@ -12,6 +13,7 @@ export function TodoTask(props: TodoTaskProps): ReactElement {
 			{props.todoTask.isCompleted
 				? <span className="material-symbols-outlined" onClick={() => props.handleTaskClick(props.todoTask)}>task_alt</span>
 				: <span className="material-symbols-outlined" onClick={() => props.handleTaskClick(props.todoTask)}>circle</span>}
+			<span className="material-symbols-outlined" onClick={() => props.handleDeleteClick(props.todoTask)}>delete</span>
 		</li >
 	);
 }

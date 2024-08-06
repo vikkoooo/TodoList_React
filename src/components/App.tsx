@@ -25,14 +25,9 @@ export function App(): ReactElement {
 	};
 
 	const handleTaskClick = (todo: ITodo): void => {
-		console.log(`Clicked, status: ${todo.isCompleted}`);
-		toggleStatus(todo);
-	}
-
-	const toggleStatus = (todo: ITodo) => {
 		const dataCopy = [...data];
 
-		// fint the clicked element
+		// find the clicked element
 		dataCopy.forEach(element => {
 			if (element.id === todo.id) {
 				element.isCompleted = !element.isCompleted; // toggle
@@ -42,9 +37,15 @@ export function App(): ReactElement {
 		setData(dataCopy); // update data
 	}
 
+	const handleDeleteClick = (todo: ITodo): void => {
+		const dataCopy = data.filter(task => task.id !== todo.id); // make new array with anything BUT matching ids
+
+		setData(dataCopy); // update data
+	}
+
 	return (
 		<div className="app">
-			<TodoList taskList={data} handleTaskClick={handleTaskClick} />
+			<TodoList taskList={data} handleTaskClick={handleTaskClick} handleDeleteClick={handleDeleteClick} />
 			<AddTask addTask={handleTaskAdd} />
 		</div>
 	);
