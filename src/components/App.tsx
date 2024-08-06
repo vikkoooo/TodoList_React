@@ -24,9 +24,27 @@ export function App(): ReactElement {
 		setData([...data, newTask]); // append using spread syntax
 	};
 
+	const handleTaskClick = (todo: ITodo): void => {
+		console.log(`Clicked, status: ${todo.isCompleted}`);
+		toggleStatus(todo);
+	}
+
+	const toggleStatus = (todo: ITodo) => {
+		const dataCopy = [...data];
+
+		// fint the clicked element
+		dataCopy.forEach(element => {
+			if (element.id === todo.id) {
+				element.isCompleted = !element.isCompleted; // toggle
+			}
+		});
+
+		setData(dataCopy); // update data
+	}
+
 	return (
 		<div className="app">
-			<TodoList taskList={data} />
+			<TodoList taskList={data} handleTaskClick={handleTaskClick} />
 			<AddTask addTask={handleTaskAdd} />
 		</div>
 	);

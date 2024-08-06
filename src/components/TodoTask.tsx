@@ -2,14 +2,16 @@ import { ReactElement } from "react";
 import { ITodo } from "../interfaces";
 
 interface TodoTaskProps {
-	todoTask: ITodo
+	todoTask: ITodo;
+	handleTaskClick: (todo: ITodo) => void;
 }
 
-export function TodoTask(prop: TodoTaskProps): ReactElement {
+export function TodoTask(props: TodoTaskProps): ReactElement {
 	return (
-		<li>{prop.todoTask.task}
-			{prop.todoTask.isCompleted ?
-				<span className="material-symbols-outlined">task_alt</span> : <span className="material-symbols-outlined">circle</span>}
-		</li>
+		<li>{props.todoTask.task}
+			{props.todoTask.isCompleted
+				? <span className="material-symbols-outlined" onClick={() => props.handleTaskClick(props.todoTask)}>task_alt</span>
+				: <span className="material-symbols-outlined" onClick={() => props.handleTaskClick(props.todoTask)}>circle</span>}
+		</li >
 	);
 }

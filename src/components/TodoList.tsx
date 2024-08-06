@@ -3,7 +3,8 @@ import { ITodo } from "../interfaces";
 import { TodoTask } from "./TodoTask";
 
 interface TodoListProps {
-	taskList: ITodo[]
+	taskList: ITodo[];
+	handleTaskClick: (todo: ITodo) => void;
 }
 
 export function TodoList(props: TodoListProps): ReactElement {
@@ -12,7 +13,7 @@ export function TodoList(props: TodoListProps): ReactElement {
 			<h1>TODO List</h1>
 			<ol>
 				{props.taskList.map((element) => (
-					<TodoTask key={element.id} todoTask={element} />
+					<TodoTask key={element.id} todoTask={element} handleTaskClick={props.handleTaskClick} />
 				))}
 			</ol>
 		</main>
