@@ -9,11 +9,12 @@ interface TodoTaskProps {
 
 export function TodoTask(props: TodoTaskProps): ReactElement {
 	return (
-		<li>{props.todoTask.task}
+		<li><span className="timestamp">{props.todoTask.timestamp.toLocaleString()}</span>
+			<span className="task-name">{props.todoTask.task}</span>
 			{props.todoTask.isCompleted
-				? <span className="material-symbols-outlined" onClick={() => props.handleTaskClick(props.todoTask)}>task_alt</span>
-				: <span className="material-symbols-outlined" onClick={() => props.handleTaskClick(props.todoTask)}>circle</span>}
-			<span className="material-symbols-outlined" onClick={() => props.handleDeleteClick(props.todoTask)}>delete</span>
+				? <span className="material-symbols-outlined is-completed" onClick={() => props.handleTaskClick(props.todoTask)}>task_alt</span>
+				: <span className="material-symbols-outlined is-completed" onClick={() => props.handleTaskClick(props.todoTask)}>circle</span>}
+			<span className="material-symbols-outlined delete" onClick={() => props.handleDeleteClick(props.todoTask)}>delete</span>
 		</li >
 	);
 }
