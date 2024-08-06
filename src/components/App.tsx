@@ -9,18 +9,19 @@ export function App(): ReactElement {
 
 	// default start data
 	const [data, setData] = useState<ITodo[]>([
-		{ id: 1, task: "koda", isCompleted: false, timestamp: new Date() },
-		{ id: 2, task: "springa", isCompleted: true, timestamp: new Date() },
-		{ id: 3, task: "laga middag", isCompleted: false, timestamp: new Date() },
-		{ id: 4, task: "handla", isCompleted: false, timestamp: new Date() }
+		{ id: 1, task: "koda", isCompleted: false, timestamp: new Date(), author: "Viktor" },
+		{ id: 2, task: "springa", isCompleted: true, timestamp: new Date(), author: "Viktor" },
+		{ id: 3, task: "laga middag", isCompleted: false, timestamp: new Date(), author: "Viktor" },
+		{ id: 4, task: "handla", isCompleted: false, timestamp: new Date(), author: "Viktor" }
 	]);
 
-	const handleTaskAdd = (newTaskInput: string): void => {
+	const handleTaskAdd = (newTaskInput: string, newAuthorInput: string): void => {
 		const newTask: ITodo = {
 			id: ++currentIndex, // increase counter before using the variable
 			task: newTaskInput,
 			isCompleted: false,
-			timestamp: new Date()
+			timestamp: new Date(),
+			author: newAuthorInput
 		};
 		setData([...data, newTask]); // append using spread syntax
 	};

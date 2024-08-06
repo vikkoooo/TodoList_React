@@ -3,4 +3,5 @@ export interface ITodo {
 	task: string;
 	isCompleted: boolean;
 	timestamp: Date;
+	author: string;
 }
