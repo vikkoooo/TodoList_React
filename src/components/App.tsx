@@ -47,8 +47,10 @@ export function App(): ReactElement {
 
 	return (
 		<div className="app">
-			<TodoList taskList={data} handleTaskClick={handleTaskClick} handleDeleteClick={handleDeleteClick} />
+			<h1>Todo List</h1>
+			<h2>Manage your tasks and stay organized.</h2>
 			<AddTask addTask={handleTaskAdd} />
+			<TodoList taskList={data} handleTaskClick={handleTaskClick} handleDeleteClick={handleDeleteClick} />
 		</div>
 	);
 }

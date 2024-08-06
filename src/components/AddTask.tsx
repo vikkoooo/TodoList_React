@@ -17,10 +17,8 @@ export function AddTask(props: AddTaskProps): ReactElement {
 
 	return (
 		<form className="add-task" onSubmit={handleSubmit}>
-			<label>Add new task</label>
-			<input type="text" value={taskInput} onChange={(event) => setTaskInput(event.target.value)} />
-			<label>Add the author</label>
-			<input type="text" value={authorInput} onChange={(event) => setAuthorInput(event.target.value)} />
+			<input type="text" className="input-task" placeholder="Add a new task" value={taskInput} onChange={(event) => setTaskInput(event.target.value)} />
+			<input type="text" className="input-author" placeholder="Author" value={authorInput} onChange={(event) => setAuthorInput(event.target.value)} />
 			<button type="submit" className="add-button">Add</button>
 		</form>
 	);

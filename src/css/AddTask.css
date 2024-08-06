@@ -1,0 +1,43 @@
+.add-task {
+	align-items: center;
+	display: flex;
+	gap: 1rem;
+	margin-bottom: 1.5rem;
+}
+
+.input-task {
+	background-color: #f0f7ff;
+	border: 1px solid #628fbd;
+	border-radius: 8px;
+	flex: 3;
+	margin: 4px;
+	padding: 0.5rem;
+}
+
+.input-author {
+	background-color: #f0f7ff;
+	border: 1px solid #628fbd;
+	border-radius: 8px;
+	flex: 1;
+	margin: 4px;
+	padding: 0.5rem;
+}
+
+input:focus {
+	border: thick double #628fbd;
+	margin: 0px;
+	outline-color: #628fbd;
+}
+
+.add-button {
+	background-color: #edc2e7;
+	border: none;
+	border-radius: 8px;
+	color: #757575;
+	cursor: pointer;
+	padding: 0.5rem 1rem;
+}
+
+.add-button:hover {
+	background-color: rgb(238, 200, 234);
+}
