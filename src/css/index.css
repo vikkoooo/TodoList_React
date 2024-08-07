@@ -3,6 +3,7 @@
 @import url(App.css);
 @import url(AddTask.css);
 @import url(TodoList.css);
+@import url(NavBar.css);
 
 * {
 	color: #3d2930;

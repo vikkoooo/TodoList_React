@@ -1,16 +1,16 @@
 import { FormEvent, ReactElement, useState } from "react";
 
-interface AddTaskProps {
+interface AddTaskPageProps {
 	addTask: (newTaskInput: string, author: string) => void;
 }
 
-export function AddTask(props: AddTaskProps): ReactElement {
+export function AddTaskPage(): ReactElement {
 	const [taskInput, setTaskInput] = useState("");
 	const [authorInput, setAuthorInput] = useState("");
 
 	const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
 		event.preventDefault();
-		props.addTask(taskInput, authorInput);
+		//props.addTask(taskInput, authorInput);
 		setTaskInput("");
 		setAuthorInput("");
 	}

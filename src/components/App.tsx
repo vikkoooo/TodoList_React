@@ -1,7 +1,7 @@
 import { ReactElement, useState } from "react";
 import { ITodo } from "../interfaces.ts";
-import { TodoList } from "./TodoList";
-import { AddTask } from "./AddTask.tsx";
+import { NavBar } from "./NavBar.tsx";
+import { Outlet } from "react-router-dom";
 
 let currentIndex: number = 4; // global id variable, update if default data is updated
 
@@ -47,10 +47,10 @@ export function App(): ReactElement {
 
 	return (
 		<div className="app">
+			<NavBar />
 			<h1>Todo List</h1>
 			<h2>Manage your tasks and stay organized.</h2>
-			<AddTask addTask={handleTaskAdd} />
-			<TodoList taskList={data} handleTaskClick={handleTaskClick} handleDeleteClick={handleDeleteClick} />
+			<Outlet />
 		</div>
 	);
 }
