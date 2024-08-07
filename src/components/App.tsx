@@ -1,12 +1,12 @@
 import { ReactElement, useState } from "react";
-import { ITodo } from "../interfaces.ts";
+import { ITodo, ITodoContext } from "../interfaces.ts";
 import { NavBar } from "./NavBar.tsx";
 import { Outlet } from "react-router-dom";
 
 let currentIndex: number = 4; // global id variable, update if default data is updated
+export let currentTodos: number = 4; // update if default data is updated
 
 export function App(): ReactElement {
-
 	// default start data
 	const [data, setData] = useState<ITodo[]>([
 		{ id: 1, task: "koda", isCompleted: false, timestamp: new Date(), author: "Viktor" },
@@ -24,6 +24,7 @@ export function App(): ReactElement {
 			author: newAuthorInput
 		};
 		setData([...data, newTask]); // append using spread syntax
+		currentTodos = data.length + 1; // update counter
 	};
 
 	const handleTaskClick = (todo: ITodo): void => {
@@ -43,14 +44,24 @@ export function App(): ReactElement {
 		const dataCopy = data.filter(task => task.id !== todo.id); // make new array with anything BUT matching ids
 
 		setData(dataCopy); // update data
+		currentTodos = data.length - 1; // update counter
 	}
+
+	const todoContext: ITodoContext = {
+		taskList: data,
+		handleTaskClick,
+		handleDeleteClick,
+		handleTaskAdd
+	};
 
 	return (
 		<div className="app">
 			<NavBar />
-			<h1>Todo List</h1>
-			<h2>Manage your tasks and stay organized.</h2>
-			<Outlet />
+			<main className="main-content">
+				<h1>Todo List</h1>
+				<h2>Manage your tasks and stay organized.</h2>
+				<Outlet context={todoContext} />
+			</main>
 		</div>
 	);
 }

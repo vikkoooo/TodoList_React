@@ -1,20 +1,16 @@
 import { ReactElement } from "react";
-import { ITodo } from "../interfaces";
 import { TodoTask } from "../components/TodoTask";
-
-interface TodoListPageProps {
-	taskList: ITodo[];
-	handleTaskClick: (todo: ITodo) => void;
-	handleDeleteClick: (todo: ITodo) => void;
-}
+import { ITodoContext } from "../interfaces";
+import { useOutletContext } from "react-router-dom";
 
 export function TodoListPage(): ReactElement {
+	const { taskList, handleTaskClick, handleDeleteClick } = useOutletContext<ITodoContext>(); // context variables instead of interface and prop
+
 	return (
 		<ol className="task-list">
-			{//props.taskList.map((element) => (
-				//<TodoTask key={element.id} todoTask={element} handleTaskClick={props.handleTaskClick} handleDeleteClick={props.handleDeleteClick} />
-				//))
-			}
+			{taskList.map((element) => (
+				<TodoTask key={element.id} todoTask={element} handleTaskClick={handleTaskClick} handleDeleteClick={handleDeleteClick} />
+			))}
 		</ol>
 	);
 }

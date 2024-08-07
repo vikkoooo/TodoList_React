@@ -1,16 +1,15 @@
 import { FormEvent, ReactElement, useState } from "react";
-
-interface AddTaskPageProps {
-	addTask: (newTaskInput: string, author: string) => void;
-}
+import { ITodoContext } from "../interfaces";
+import { useOutletContext } from "react-router-dom";
 
 export function AddTaskPage(): ReactElement {
 	const [taskInput, setTaskInput] = useState("");
 	const [authorInput, setAuthorInput] = useState("");
+	const { handleTaskAdd } = useOutletContext<ITodoContext>(); // context variables instead of interface and prop
 
 	const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
 		event.preventDefault();
-		//props.addTask(taskInput, authorInput);
+		handleTaskAdd(taskInput, authorInput);
 		setTaskInput("");
 		setAuthorInput("");
 	}
@@ -23,4 +22,3 @@ export function AddTaskPage(): ReactElement {
 		</form>
 	);
 }
-
