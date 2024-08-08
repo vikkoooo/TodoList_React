@@ -11,4 +11,5 @@ export interface ITodoContext {
 	handleTaskClick: (todo: ITodo) => void;
 	handleDeleteClick: (todo: ITodo) => void;
 	handleTaskAdd: (newTaskInput: string, author: string) => void;
+	editTodo: (updatedTodo: ITodo) => void
 }

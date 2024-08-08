@@ -38,20 +38,29 @@ export function App(): ReactElement {
 		});
 
 		setData(dataCopy); // update data
-	}
+	};
 
 	const handleDeleteClick = (todo: ITodo): void => {
 		const dataCopy = data.filter(task => task.id !== todo.id); // make new array with anything BUT matching ids
 
 		setData(dataCopy); // update data
 		currentTodos = data.length - 1; // update counter
+	};
+
+	const editTodo = (updatedTodo: ITodo): void => {
+		const updatedTodos = data.map(todo => {
+			if (todo.id === updatedTodo.id) return updatedTodo;
+			return todo;
+		})
+		setData(updatedTodos);
 	}
 
 	const todoContext: ITodoContext = {
 		taskList: data,
 		handleTaskClick,
 		handleDeleteClick,
-		handleTaskAdd
+		handleTaskAdd,
+		editTodo
 	};
 
 	return (
