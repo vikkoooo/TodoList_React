@@ -4,7 +4,7 @@ import { ITodo, ITodoContext } from "../interfaces";
 import { useOutletContext } from "react-router-dom";
 
 export function TodoListPage(): ReactElement {
-	const { taskList, handleTaskClick, handleDeleteClick, editTodo } = useOutletContext<ITodoContext>(); // context variables instead of interface and prop
+	const { taskList, handleTaskClick, handleDeleteClick, editTodo, sortByTimeAsc, sortByTimeDesc, sortByAuthorAsc, sortByAuthorDesc } = useOutletContext<ITodoContext>(); // context variables instead of interface and prop
 	const [newTaskInput, setNewTaskInput] = useState("");
 	const [newAuthorInput, setNewAuthorInput] = useState("");
 	const [currentTodo, setCurrentTodo] = useState<ITodo>();
@@ -33,8 +33,28 @@ export function TodoListPage(): ReactElement {
 		setCurrentTodo(undefined); // clear "holding" the object after an edit was completed
 	}
 
+	const handleSortByTimeAscClicked = () => {
+		sortByTimeAsc();
+	}
+
+	const handleSortByTimeDescClicked = () => {
+		sortByTimeDesc();
+	}
+
+	const handleSortByAuthorAscClicked = () => {
+		sortByAuthorAsc();
+	}
+
+	const handleSortByAuthorDescClicked = () => {
+		sortByAuthorDesc();
+	}
+
 	return (
 		<div className="todo-list-page">
+			<button type="button" className="sort-time-asc" onClick={handleSortByTimeAscClicked}>Time Ascending</button>
+			<button type="button" className="sort-time-desc" onClick={handleSortByTimeDescClicked}>Time Descending</button>
+			<button type="button" className="sort-author-asc" onClick={handleSortByAuthorAscClicked}>Author Ascending</button>
+			<button type="button" className="sort-author-desc" onClick={handleSortByAuthorDescClicked}>Author Descending</button>
 			<ol className="task-list">
 				{taskList.map((element) => (
 					<TodoTask

@@ -53,7 +53,7 @@ export function App(): ReactElement {
 			return todo;
 		})
 		setData(updatedTodos);
-	}
+	};
 
 	const moveUpTodo = (id: number): void => {
 		const index = data.findIndex(todo => todo.id === id); // find the index
@@ -66,7 +66,7 @@ export function App(): ReactElement {
 		newData[index - 1] = newData[index];
 		newData[index] = temp;
 		setData(newData);
-	}
+	};
 
 	const moveDownTodo = (id: number): void => {
 		const index = data.findIndex(todo => todo.id === id);
@@ -78,7 +78,31 @@ export function App(): ReactElement {
 		newData[index + 1] = newData[index];
 		newData[index] = temp;
 		setData(newData);
-	}
+	};
+
+	const sortByTimeAsc = (): void => {
+		const newData = [...data];
+		newData.sort((a, b) => a.timestamp.getTime() - b.timestamp.getTime())
+		setData(newData);
+	};
+
+	const sortByTimeDesc = (): void => {
+		const newData = [...data];
+		newData.sort((a, b) => b.timestamp.getTime() - a.timestamp.getTime());
+		setData(newData);
+	};
+
+	const sortByAuthorAsc = (): void => {
+		const newData = [...data];
+		newData.sort((a, b) => a.author.localeCompare(b.author));
+		setData(newData);
+	};
+
+	const sortByAuthorDesc = (): void => {
+		const newData = [...data];
+		newData.sort((a, b) => b.author.localeCompare(a.author));
+		setData(newData);
+	};
 
 	const todoContext: ITodoContext = {
 		taskList: data,
@@ -87,7 +111,11 @@ export function App(): ReactElement {
 		handleTaskAdd,
 		editTodo,
 		moveUpTodo,
-		moveDownTodo
+		moveDownTodo,
+		sortByTimeAsc,
+		sortByTimeDesc,
+		sortByAuthorAsc,
+		sortByAuthorDesc
 	};
 
 	return (

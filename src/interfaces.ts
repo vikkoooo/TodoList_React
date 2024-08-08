@@ -14,4 +14,8 @@ export interface ITodoContext {
 	editTodo: (updatedTodo: ITodo) => void
 	moveUpTodo: (id: number) => void
 	moveDownTodo: (id: number) => void
+	sortByTimeAsc: () => void
+	sortByTimeDesc: () => void
+	sortByAuthorAsc: () => void
+	sortByAuthorDesc: () => void
 }
