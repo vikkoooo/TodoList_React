@@ -20,15 +20,17 @@ export function TodoListPage(): ReactElement {
 		setNewTaskInput("");
 		setNewAuthorInput("");
 
+		if (currentTodo === undefined) return; // exit if clicked when undefined
+
 		const updatedTodoObject: ITodo = {
-			id: currentTodo!.id, // increase counter before using the variable
+			id: currentTodo.id,
 			task: newTaskInput,
 			isCompleted: currentTodo!.isCompleted,
 			timestamp: new Date(),
 			author: newAuthorInput
 		};
-
 		editTodo(updatedTodoObject);
+		setCurrentTodo(undefined); // clear "holding" the object after an edit was completed
 	}
 
 	return (
