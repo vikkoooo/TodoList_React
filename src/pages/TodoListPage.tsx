@@ -51,10 +51,22 @@ export function TodoListPage(): ReactElement {
 
 	return (
 		<div className="todo-list-page">
-			<button type="button" className="sort-time-asc" onClick={handleSortByTimeAscClicked}>Time Ascending</button>
-			<button type="button" className="sort-time-desc" onClick={handleSortByTimeDescClicked}>Time Descending</button>
-			<button type="button" className="sort-author-asc" onClick={handleSortByAuthorAscClicked}>Author Ascending</button>
-			<button type="button" className="sort-author-desc" onClick={handleSortByAuthorDescClicked}>Author Descending</button>
+			<button type="button" className="sort-time-asc" onClick={handleSortByTimeAscClicked}>
+				<span className="material-symbols-outlined">nest_clock_farsight_analog</span>
+				<span className="material-symbols-outlined">arrow_upward</span>
+			</button>
+			<button type="button" className="sort-time-desc" onClick={handleSortByTimeDescClicked}>
+				<span className="material-symbols-outlined">nest_clock_farsight_analog</span>
+				<span className="material-symbols-outlined">arrow_downward</span>
+			</button>
+			<button type="button" className="sort-author-asc" onClick={handleSortByAuthorAscClicked}>
+				<span className="material-symbols-outlined">person</span>
+				<span className="material-symbols-outlined">arrow_upward</span>
+			</button>
+			<button type="button" className="sort-author-desc" onClick={handleSortByAuthorDescClicked}>
+				<span className="material-symbols-outlined">person</span>
+				<span className="material-symbols-outlined">arrow_downward</span>
+			</button>
 			<ol className="task-list">
 				{taskList.map((element) => (
 					<TodoTask
