@@ -23,6 +23,8 @@ export function TodoTask(props: TodoTaskProps): ReactElement {
 					<span className="task">{props.todoTask.task}</span>
 				</div>
 			</div>
+			<span className="material-symbols-outlined move-up">text_select_move_up</span>
+			<span className="material-symbols-outlined move-down">text_select_move_down</span>
 			<span className="material-symbols-outlined edit" onClick={() => props.handleEditClick(props.todoTask)}>edit</span>
 			<span className="material-symbols-outlined delete" onClick={() => props.handleDeleteClick(props.todoTask)}>delete</span>
 		</li >

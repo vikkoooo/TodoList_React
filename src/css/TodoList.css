@@ -51,14 +51,32 @@
 }
 
 .material-symbols-outlined.delete,
-.material-symbols-outlined.edit {
+.material-symbols-outlined.edit,
+.material-symbols-outlined.move-up,
+.material-symbols-outlined.move-down {
+	margin-left: 0.2rem;
 	color: #2d3945;
 	display: flex;
-	flex: 1;
 	justify-content: flex-end;
 }
 
 .material-symbols-outlined.delete:hover,
-.material-symbols-outlined.edit:hover {
+.material-symbols-outlined.edit:hover,
+.material-symbols-outlined.move-up:hover,
+.material-symbols-outlined.move-down:hover {
 	color: #74aff2;
+}
+
+.edit {
+	margin-left: 4px;
+}
+
+.edit-task-field {}
+
+.edit-author-field {
+	margin-left: 1rem;
+}
+
+.edit-button {
+	margin-left: 1rem;
 }
