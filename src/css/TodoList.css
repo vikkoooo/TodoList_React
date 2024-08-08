@@ -67,16 +67,34 @@
 	color: #74aff2;
 }
 
-.edit {
-	margin-left: 4px;
+.edit-task-field {
+	background-color: #f0f7ff;
+	border: 1px solid #628fbd;
+	border-radius: 8px;
+	flex: 3;
+	margin: 4px;
+	padding: 0.5rem;
 }
 
-.edit-task-field {}
-
 .edit-author-field {
-	margin-left: 1rem;
+	background-color: #f0f7ff;
+	border: 1px solid #628fbd;
+	border-radius: 8px;
+	flex: 1;
+	margin: 4px;
+	padding: 0.5rem;
 }
 
 .edit-button {
-	margin-left: 1rem;
+	margin-left: 4px;
+	background-color: #edc2e7;
+	border: none;
+	border-radius: 8px;
+	color: #757575;
+	cursor: pointer;
+	padding: 0.5rem 1rem;
+}
+
+.edit-button:hover {
+	background-color: #eec8ea;
 }
