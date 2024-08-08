@@ -50,13 +50,15 @@
 	color: #757575;
 }
 
-.material-symbols-outlined.delete {
+.material-symbols-outlined.delete,
+.material-symbols-outlined.edit {
 	color: #2d3945;
 	display: flex;
 	flex: 1;
 	justify-content: flex-end;
 }
 
-.material-symbols-outlined.delete:hover {
+.material-symbols-outlined.delete:hover,
+.material-symbols-outlined.edit:hover {
 	color: #74aff2;
 }
