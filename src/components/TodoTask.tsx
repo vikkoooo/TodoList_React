@@ -1,5 +1,6 @@
 import { ReactElement } from "react";
-import { ITodo } from "../interfaces";
+import { ITodo, ITodoContext } from "../interfaces";
+import { useOutletContext } from "react-router-dom";
 
 interface TodoTaskProps {
 	todoTask: ITodo;
@@ -9,6 +10,8 @@ interface TodoTaskProps {
 }
 
 export function TodoTask(props: TodoTaskProps): ReactElement {
+	const { moveUpTodo, moveDownTodo } = useOutletContext<ITodoContext>(); // context variables instead of interface and prop
+
 	return (
 		<li className="task-item">
 			{props.todoTask.isCompleted
@@ -23,8 +26,8 @@ export function TodoTask(props: TodoTaskProps): ReactElement {
 					<span className="task">{props.todoTask.task}</span>
 				</div>
 			</div>
-			<span className="material-symbols-outlined move-up">text_select_move_up</span>
-			<span className="material-symbols-outlined move-down">text_select_move_down</span>
+			<span className="material-symbols-outlined move-up" onClick={() => moveUpTodo(props.todoTask.id)}>text_select_move_up</span>
+			<span className="material-symbols-outlined move-down" onClick={() => moveDownTodo(props.todoTask.id)}>text_select_move_down</span>
 			<span className="material-symbols-outlined edit" onClick={() => props.handleEditClick(props.todoTask)}>edit</span>
 			<span className="material-symbols-outlined delete" onClick={() => props.handleDeleteClick(props.todoTask)}>delete</span>
 		</li >

@@ -55,12 +55,39 @@ export function App(): ReactElement {
 		setData(updatedTodos);
 	}
 
+	const moveUpTodo = (id: number): void => {
+		const index = data.findIndex(todo => todo.id === id); // find the index
+		if (index === 0) return; // check for out of bounds, exit if first in arr
+
+		// swap the data and make react render
+		const newData = [...data];
+
+		const temp = newData[index - 1];
+		newData[index - 1] = newData[index];
+		newData[index] = temp;
+		setData(newData);
+	}
+
+	const moveDownTodo = (id: number): void => {
+		const index = data.findIndex(todo => todo.id === id);
+		if (index === data.length - 1) return; // check for out of bounds, exit if last in arr
+
+		const newData = [...data];
+
+		const temp = newData[index + 1];
+		newData[index + 1] = newData[index];
+		newData[index] = temp;
+		setData(newData);
+	}
+
 	const todoContext: ITodoContext = {
 		taskList: data,
 		handleTaskClick,
 		handleDeleteClick,
 		handleTaskAdd,
-		editTodo
+		editTodo,
+		moveUpTodo,
+		moveDownTodo
 	};
 
 	return (
