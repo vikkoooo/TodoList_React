@@ -1,10 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800');
 @import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined');
 @import url(App.css);
-@import url(AddTask.css);
-@import url(TodoList.css);
 @import url(NavBar.css);
-@import url(About.css);
+@import url(TodoListPage.css);
+@import url(AddTaskPage.css);
+@import url(AboutPage.css);
 
 * {
 	color: #3d2930;
