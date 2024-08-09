@@ -118,7 +118,7 @@ export function App(): ReactElement {
 		sortByTimeDesc,
 		sortByAuthorAsc,
 		sortByAuthorDesc,
-		counter: nTodosCounter
+		counter: nTodosCounter,
 	};
 
 	return (
