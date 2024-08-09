@@ -3,9 +3,9 @@ import { ITodoContext } from "../interfaces";
 import { useOutletContext } from "react-router-dom";
 
 export function AddTaskPage(): ReactElement {
+	const { handleTaskAdd } = useOutletContext<ITodoContext>(); // context variables instead of interface and prop
 	const [taskInput, setTaskInput] = useState("");
 	const [authorInput, setAuthorInput] = useState("");
-	const { handleTaskAdd } = useOutletContext<ITodoContext>(); // context variables instead of interface and prop
 
 	const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
 		event.preventDefault();
