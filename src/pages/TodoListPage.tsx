@@ -4,14 +4,14 @@ import { ITodo, ITodoContext } from "../interfaces";
 import { useOutletContext } from "react-router-dom";
 
 export function TodoListPage(): ReactElement {
-	const { taskList, editTodo, sortByTimeAsc, sortByTimeDesc, sortByAuthorAsc, sortByAuthorDesc } = useOutletContext<ITodoContext>(); // context variables instead of interface and prop
+	const { taskList, editTodo, sortByTimeAsc, sortByTimeDesc, sortByAuthorAsc, sortByAuthorDesc } = useOutletContext<ITodoContext>();
 	const [newTaskInput, setNewTaskInput] = useState("");
 	const [newAuthorInput, setNewAuthorInput] = useState("");
 	const [currentTodo, setCurrentTodo] = useState<ITodo>();
 
 	const handleEditClick = (todo: ITodo) => {
 		setNewTaskInput(todo.task);
-		setNewAuthorInput(todo.author)
+		setNewAuthorInput(todo.author);
 		setCurrentTodo(todo);
 	};
 
@@ -23,9 +23,8 @@ export function TodoListPage(): ReactElement {
 		if (currentTodo === undefined) return; // exit if clicked when undefined
 
 		const updatedTodoObject: ITodo = {
-			id: currentTodo.id,
+			...currentTodo,
 			task: newTaskInput,
-			isCompleted: currentTodo!.isCompleted,
 			timestamp: new Date(),
 			author: newAuthorInput
 		};
