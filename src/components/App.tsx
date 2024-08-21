@@ -2,6 +2,7 @@ import { ReactElement, useState } from "react";
 import { ITodo, ITodoContext } from "../interfaces.ts";
 import { NavBar } from "./NavBar.tsx";
 import { Outlet } from "react-router-dom";
+import { runTests } from "../api.ts";
 
 export function App(): ReactElement {
 	// default start data
@@ -128,6 +129,7 @@ export function App(): ReactElement {
 				<h1>Todo List</h1>
 				<h2>Manage your tasks and stay organized.</h2>
 				<Outlet context={todoContext} />
+				<button type="button" onClick={async () => await runTests()}>run api test</button>
 			</main>
 		</div>
 	);

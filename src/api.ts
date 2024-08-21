@@ -1,6 +1,6 @@
 import { ITodo } from "./interfaces";
 
-const url = 'http://localhost:0000/api/todos'; // update
+const url = "https://localhost:7236/api/todoitems";
 
 export const getTodos = async (): Promise<ITodo[]> => {
 	try {
@@ -69,4 +69,15 @@ export const deleteTodo = async (id: number): Promise<void> => {
 		console.error('Error deleting todo:', error);
 		throw error;
 	}
+};
+
+// test functions
+export const runTests = async () => {
+	var response = await getTodos();
+	console.log("outside of timeout");
+	console.log(response);
+	setTimeout(() => {
+		console.log("in timeout");
+		console.log(response);
+	}, 1000);
 };
